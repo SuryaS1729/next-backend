@@ -5,7 +5,7 @@ import Image from "next/image";
 async function getUserDetails() {
   await new Promise((r)=> setTimeout(r, 5000))
 
-    const response = await axios.get("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details")
+    const response = await axios.get("http://localhost:3000/api/user")
     return response.data;
   }
   
@@ -17,11 +17,11 @@ const userDetails = await getUserDetails()
     <div className="flex justify-center">
         <div className="border p-8 rounded">
             <div>
-                Name: {userDetails?.name}
+                Name: {userDetails?.username}
             </div>
             
             <div>{userDetails?.email}</div>
-            <div>{userDetails.address.city}</div>
+            
         </div>
         
     </div>
